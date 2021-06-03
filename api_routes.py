@@ -1,5 +1,4 @@
 from flask import Blueprint
-from flask import json
 from flask.globals import request
 from flask.json import jsonify
 
@@ -92,7 +91,7 @@ def reschedule_booking_a_bed():
   return jsonify(message="Bed rescheduled successfully")
 
 # Unbook a bed using id
-@api_routes_bp('/unbookBed')
+@api_routes_bp.route('/unbookBed')
 def unbook_a_bed():
   id = request.args['id']
   beds_collection = db.beds
